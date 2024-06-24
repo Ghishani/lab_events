@@ -11,9 +11,13 @@ enterButton.addEventListener("click", (event) => {
     const toDoList = document.createElement("li");
     toDoList.innerText = userInput.value;
     list.appendChild(toDoList);
+    const completeButton = document.createElement("button");
+    completeButton.setAttribute("id", "complete-button");
+    completeButton.innerText = "complete";
     const deleteButton = document.createElement("button");
     deleteButton.setAttribute("id", "delete-button");
     deleteButton.innerText = "delete";
+    toDoList.appendChild(completeButton);
     toDoList.appendChild(deleteButton);
 });
 
@@ -22,6 +26,8 @@ list.addEventListener("click", (event) => {
     if(element.matches("button")){
         if (element.getAttribute("id") === "delete-button"){
             element.parentNode.remove();
+        } else if (element.getAttribute("id")=== "complete-button"){
+            element.parentNode.style.color = "#aaaaaa"
         }
     }
 });
