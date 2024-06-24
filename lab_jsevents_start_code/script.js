@@ -1,5 +1,10 @@
 const enterButton = document.querySelector("#enter");
+const userInput = document.querySelector("#new-todo");
+const list = document.querySelector("#list");
+
 enterButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(event.target);
+    const toDoList = document.createElement("li");
+    toDoList.innerText = userInput.value;
+    list.appendChild(toDoList);
 });
