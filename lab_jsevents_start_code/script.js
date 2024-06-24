@@ -8,8 +8,17 @@ enterButton.addEventListener("click", (event) => {
     toDoList.innerText = userInput.value;
     list.appendChild(toDoList);
     const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("id", "delete-button");
     deleteButton.innerText = "delete";
     toDoList.appendChild(deleteButton);
 });
 
+list.addEventListener("click", (event) => {
+    const element = event.target;
+    if(element.matches("button")){
+        if (element.getAttribute("id")=== "delete-button"){
+            element.parentNode.remove();
+        }
+    }
+});
 
