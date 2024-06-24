@@ -1,6 +1,10 @@
 const enterButton = document.querySelector("#enter");
 const userInput = document.querySelector("#new-todo");
 const list = document.querySelector("#list");
+const dateSection = document.querySelector("#date-section");
+const showDateButton = document.querySelector("#show-date");
+
+let dateShown = false;
 
 enterButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -16,9 +20,23 @@ enterButton.addEventListener("click", (event) => {
 list.addEventListener("click", (event) => {
     const element = event.target;
     if(element.matches("button")){
-        if (element.getAttribute("id")=== "delete-button"){
+        if (element.getAttribute("id") === "delete-button"){
             element.parentNode.remove();
         }
     }
 });
 
+showDateButton.addEventListener("click", () => {
+    if(dateShown) {
+        dateShown = false;
+        document.querySelector("#date").remove();
+        showDateButton.innerText = "Show Date";
+        return
+    }
+    const date = document.createElement("h2");
+    date.innerText = Date();
+    date.setAttribute("id", "date");
+    showDateButton.innerText = "Hide Date";
+    dateSection.appendChild(date);
+    dateShown = true;
+})
