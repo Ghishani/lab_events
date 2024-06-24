@@ -7,4 +7,9 @@ enterButton.addEventListener("click", (event) => {
     const toDoList = document.createElement("li");
     toDoList.innerText = userInput.value;
     list.appendChild(toDoList);
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "delete";
+    toDoList.appendChild(deleteButton);
 });
+
+
